@@ -13,7 +13,7 @@ class QuestionMarkIcon extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
       child: Image.asset(
-        'assets/logo_quiz_app.jpg',
+        'assets/logo.png',
         fit: BoxFit.cover,
       ),
     );

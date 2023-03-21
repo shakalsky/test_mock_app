@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
@@ -48,14 +46,14 @@ class _SplashScreenState extends State<SplashScreen> {
         hasInternetConnection = true;
       });
       final url = await _preferencesDataSource.getUrl();
-      if (url != null) {
+      if (url != null && url.isNotEmpty) {
         _navigateFurther(true, url);
       } else {
         try {
           final remoteConfig = FirebaseRemoteConfig.instance;
           await remoteConfig.setConfigSettings(RemoteConfigSettings(
             fetchTimeout: const Duration(minutes: 1),
-            minimumFetchInterval: const Duration(hours: 1),
+            minimumFetchInterval: const Duration(seconds: 1),
           ));
           await remoteConfig.fetchAndActivate();
           final str = remoteConfig.getString('url');
@@ -90,7 +88,7 @@ class _SplashScreenState extends State<SplashScreen> {
         SizedBox(
           width: 150,
           height: 150,
-          child: Image.asset('assets/logo_quiz_app.jpg'),
+          child: Image.asset('assets/logo.png'),
         ),
         const Spacer(),
         Text(
