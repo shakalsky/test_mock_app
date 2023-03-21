@@ -1,4 +1,4 @@
-package com.example.test_mock_app
+package blagames.app
 
 import io.flutter.embedding.android.FlutterActivity
 

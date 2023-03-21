@@ -19,18 +19,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   bool hasInternetConnection = true;
   final PreferencesDataSource _preferencesDataSource = PreferencesDataSource();
-  late StreamSubscription subscription;
+
   @override
   void initState() {
     super.initState();
-
     _configureUrl();
-  }
-
-  @override
-  dispose() {
-    subscription.cancel();
-    super.dispose();
   }
 
   _navigateFurther(bool showWebView, String? url) {
